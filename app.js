@@ -24,6 +24,10 @@ function initCurtain() {
   const overlay = document.getElementById('curtain-overlay');
   if (!overlay) return;
 
+  // Prevent scrolling during curtain animation
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0, 0);
+
   // Show title briefly, then open curtains
   setTimeout(() => {
     overlay.classList.add('open');
@@ -32,6 +36,8 @@ function initCurtain() {
   // Remove from DOM after animation completes
   setTimeout(() => {
     overlay.classList.add('done');
+    document.body.style.overflow = '';
+    window.scrollTo(0, 0);
   }, 3200);
 }
 
