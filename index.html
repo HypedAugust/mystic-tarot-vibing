@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystic Tarot - 타로카드 리딩</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Curtain Intro -->
+  <div class="curtain-overlay" id="curtain-overlay">
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+    <div class="curtain-title" id="curtain-title">✦ MYSTIC TAROT ✦</div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>✦ MYSTIC TAROT ✦</h1>
+    <p>신비로운 타로카드의 세계에 오신 것을 환영합니다</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <button class="nav-btn active" data-section="reading">🔮 타로 리딩</button>
+    <button class="nav-btn" data-section="browse">📖 카드 도감</button>
+  </nav>
+
+  <!-- Section: Tarot Reading -->
+  <section id="section-reading" class="section active">
+    <!-- Step 1: Spread Selection -->
+    <div id="spread-selection">
+      <h2 class="section-title">스프레드를 선택하세요</h2>
+      <div class="spread-grid" id="spread-grid"></div>
+    </div>
+
+    <!-- Step 2: Shuffle & Draw -->
+    <div id="reading-area" class="reading-area">
+      <div class="reading-header">
+        <h2 id="reading-spread-name"></h2>
+        <p id="reading-spread-desc"></p>
+      </div>
+
+      <!-- Shuffle -->
+      <div class="shuffle-area" id="shuffle-area">
+        <div class="deck-pile" id="deck-pile"></div>
+        <button class="shuffle-btn" id="shuffle-btn">🔀 카드 섞기</button>
+      </div>
+
+      <!-- Card selection -->
+      <div class="selection-area" id="selection-area">
+        <p class="selection-instruction">
+          카드를 <span id="remaining-count">0</span>장 선택하세요
+        </p>
+        <div class="fan-cards" id="fan-cards"></div>
+      </div>
+
+      <!-- Spread Layout -->
+      <div class="spread-layout" id="spread-layout"></div>
+
+      <!-- Interpretation -->
+      <div class="interpretation-area" id="interpretation-area">
+        <h2 class="section-title">✦ 타로 해석 ✦</h2>
+        <div class="selected-cards-row" id="selected-cards-row"></div>
+        <div class="interpretation-text" id="interpretation-text">
+          <div class="loading">해석을 생성하고 있습니다</div>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="reset-btn" style="display:none;">↻ 처음으로 돌아가기</button>
+    </div>
+  </section>
+
+  <!-- Section: Browse All Cards -->
+  <section id="section-browse" class="section">
+    <h2 class="section-title">타로카드 도감</h2>
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">전체 (78)</button>
+      <button class="filter-btn" data-filter="major">메이저 아르카나 (22)</button>
+      <button class="filter-btn" data-filter="wands">완드 (14)</button>
+      <button class="filter-btn" data-filter="cups">컵 (14)</button>
+      <button class="filter-btn" data-filter="swords">소드 (14)</button>
+      <button class="filter-btn" data-filter="pentacles">펜타클 (14)</button>
+    </div>
+    <div class="cards-grid" id="cards-grid"></div>
+  </section>
+
+  <!-- Context Question Modal -->
+  <div class="modal-overlay" id="context-modal">
+    <div class="modal">
+      <h3>✦ 질문을 알려주세요 ✦</h3>
+      <p>더 정확한 해석을 위해 고민이나 상황을 알려주세요</p>
+      <div class="category-grid" id="category-grid">
+        <button class="category-btn" data-category="연애">💕 연애</button>
+        <button class="category-btn" data-category="직장">💼 직장</button>
+        <button class="category-btn" data-category="재정">💰 재정</button>
+        <button class="category-btn" data-category="건강">🏥 건강</button>
+        <button class="category-btn" data-category="학업">📚 학업</button>
+        <button class="category-btn" data-category="일반">🔮 일반</button>
+      </div>
+      <textarea class="context-textarea" id="context-input"
+        placeholder="예: 현재 직장을 옮기는 것에 대해 고민하고 있어요...&#10;(선택사항 - 비워두셔도 됩니다)"></textarea>
+      <button class="modal-submit" id="submit-context">✦ 해석 시작</button>
+    </div>
+  </div>
+
+  <!-- Card Detail Modal -->
+  <div class="card-detail-modal" id="card-detail-modal">
+    <div class="card-detail" id="card-detail-content"></div>
+  </div>
+
+  <script src="tarot-data.js"></script>
+  <script src="spreads.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
