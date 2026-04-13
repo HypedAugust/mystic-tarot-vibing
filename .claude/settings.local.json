@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/82106/Desktop/**)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm run:*)",
+      "WebFetch(domain:dingco-vibecoding-2zh3ph3v5-hypedaugusts-projects.vercel.app)",
+      "WebFetch(domain:dingco-vibecoding.vercel.app)"
+    ]
+  }
+}
